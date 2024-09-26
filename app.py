@@ -39,12 +39,6 @@ textract = session.client('textract', config=retry_config)
 model = ChatBedrock(client=client, model_id=os.environ.get("BEDROCK_MODEL"))
 
 
-
-
-
-
-
-
 def upload_document(uploaded_file):
     """Save the uploaded document to the 'uploaded_files' folder and return its file path."""
     if uploaded_file is not None:
@@ -318,16 +312,6 @@ def generate_summary(documents):
         return None
 
 
-
-
-
-
-
-
-
-
-
-
 # Streamlit UI
 # Streamlit Tabs for multi-program handling
 tab1, tab2 = st.tabs(["Medical Document Summarization", "Billing Document Summarization"])
@@ -383,7 +367,7 @@ with tab2:
 
             if texts:
                 # Step 3: Generate summary
-                st.write("Generating summary...")
+                st.write("Extracting document...")
                 summary = generate_output(texts)
 
                 if summary:
